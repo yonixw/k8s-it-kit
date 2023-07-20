@@ -25,6 +25,9 @@ RUN bash /root/2install-robomongo.sh
 COPY 3install-openlens.sh /root/
 RUN bash /root/3install-openlens.sh
 
+COPY 4install-dbeaver.sh /root/
+RUN bash /root/4install-dbeaver.sh
+
 RUN mkdir -p /root && rm -f /root/*.sh
 
 

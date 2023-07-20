@@ -42,6 +42,7 @@ apt install -y libgtk-3-0 libnotify4 xdg-utils libatspi2.0-0 libsecret-1-0 libgb
 
 echo "Install Openlens"
 dpkg -i openlens.amd64.deb
+rm openlens.amd64.deb
 
 # kubectl
 # expected in  /root/.config/OpenLens/binaries/kubectl
@@ -51,6 +52,7 @@ curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stabl
 curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
 echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
 
+mkdir -p /root/.config/OpenLens/binaries/
 install -o root -g root -m 0755 kubectl /root/.config/OpenLens/binaries/kubectl
 
 /root/.config/OpenLens/binaries/kubectl version --client
@@ -60,5 +62,5 @@ rm -rf _kubectl
 
 echo "Update menu to (fail if not found): $EXE_PATH"
 
-echo "?package(bash):needs=\"X11\" section=\"DockerCustom\" title=\"OpenLens (K8s)\" command=\"export QT_X11_NO_MITSHM=1 && /opt/OpenLens/open-lens  --no-sandbox --disable-gpu  --in-process-gpu --disable-software-rasterizer --no-xshm --disable-dev-shm-usage" \"" \
+echo "?package(bash):needs=\"X11\" section=\"DockerCustom\" title=\"OpenLens (K8s)\" command=\"export QT_X11_NO_MITSHM=1 && /opt/OpenLens/open-lens  --no-sandbox --disable-gpu  --in-process-gpu --disable-software-rasterizer --no-xshm --disable-dev-shm-usage\"" \
     >> /usr/share/menu/custom-docker && update-menus

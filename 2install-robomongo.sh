@@ -35,6 +35,7 @@ ls -la
 
 echo "Extract tar.gz"
 tar -xvf robomongo.tar.gz
+rm robomongo.tar.gz
 
 echo "Update menu to (fail if not found): $EXE_PATH"
 # https://askubuntu.com/a/1033450/570936 ~+ = full path of pwd in bash, or use 'pwd -P'
