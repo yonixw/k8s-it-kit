@@ -1,4 +1,4 @@
-FROM bandi13/gui-docker:1.3
+FROM bandi13/gui-docker:local
 ENTRYPOINT ["/opt/container_startup.sh"]
 EXPOSE 5901
 ENV VNC_PASSWD=123456

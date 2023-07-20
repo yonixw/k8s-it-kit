@@ -40,5 +40,5 @@ echo "Update menu to (fail if not found): $EXE_PATH"
 # https://askubuntu.com/a/1033450/570936 ~+ = full path of pwd in bash, or use 'pwd -P'
 EXE_PATH=$(find ~+ | grep /bin/robo3t)
 
-echo "?package(bash):needs=\"X11\" section=\"DockerCustom\" title=\"RoboMongo\" command=\"xterm -ls -bg black -fg white -fs 14 -fa DejaVuSansMono -e \\\"$EXE_PATH\\\" \"" \
+echo "?package(bash):needs=\"X11\" section=\"DockerCustom\" title=\"Robo3t (Mongo)\" command=\"xterm -ls -bg black -fg white -fs 14 -fa DejaVuSansMono -e \\\"$EXE_PATH\\\" \"" \
     >> /usr/share/menu/custom-docker && update-menus
