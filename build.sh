@@ -12,7 +12,7 @@ cat Dockerfile | \
     > Dockerfile.local
 
 #https://askubuntu.com/a/1387849/570936
-sed -i 's/fi/fi\nsleep 360d/' x11vnc_entrypoint.sh
+#sed -i 's/fi/fi\nsleep 360d/' x11vnc_entrypoint.sh
 
 docker build -f Dockerfile.local -t bandi13/gui-docker:local .
 
