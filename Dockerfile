@@ -28,8 +28,9 @@ RUN bash /root/3install-openlens.sh
 COPY 4install-dbeaver.sh /root/
 RUN bash /root/4install-dbeaver.sh
 
-# import common plufing I cached before
-COPY dbeaver-plugins.tar.gz /root/.local/share/DBeaverData/drivers
+# import common plugins I cached before (SQLite, MySQL etc...)
+COPY dbeaver-plugins-cache-parts/drivers.xml /root/.local/share/DBeaverData/workspace6/.metadata/.config/
+COPY dbeaver-plugins.tar.gz /root/.local/share/DBeaverData/drivers/
 RUN cd /root/.local/share/DBeaverData/drivers && \
     tar -xzvf dbeaver-plugins.tar.gz && \
     rm dbeaver-plugins.tar.gz
