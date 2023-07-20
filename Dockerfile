@@ -28,6 +28,12 @@ RUN bash /root/3install-openlens.sh
 COPY 4install-dbeaver.sh /root/
 RUN bash /root/4install-dbeaver.sh
 
+# import common plufing I cached before
+COPY dbeaver-plugins.tar.gz /root/.local/share/DBeaverData/drivers
+RUN cd /root/.local/share/DBeaverData/drivers && \
+    tar -xzvf dbeaver-plugins.tar.gz && \
+    rm dbeaver-plugins.tar.gz
+
 RUN mkdir -p /root && rm -f /root/*.sh
 
 
