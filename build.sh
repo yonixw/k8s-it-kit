@@ -17,4 +17,6 @@ sed -i 's/fi/fi\nsleep 360d/' x11vnc_entrypoint.sh
 docker build -f Dockerfile.local -t bandi13/gui-docker:local .
 
 cd ..
+cat dbeaver-plugins-cache-parts/dbeaver-plugins-tar-gz* > dbeaver-plugins.tar.gz
 docker build -t yonixw/k8s-it-kit .
+rm dbeaver-plugins.tar.gz
