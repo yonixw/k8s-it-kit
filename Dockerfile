@@ -13,10 +13,19 @@ RUN echo "?package(bash):needs=\"X11\" section=\"DockerCustom\" title=\"Xterm Da
 
 RUN mkdir -p /root
 
-COPY *.sh /root/
+RUN apt update && apt -y install \
+    docker.io bsdmainutils
+
+COPY 1electron-deps.sh /root/
 RUN bash /root/1electron-deps.sh 
+
+COPY 2install-robomongo.sh /root/
 RUN bash /root/2install-robomongo.sh
 
+COPY 3install-openlens.sh /root/
+RUN bash /root/3install-openlens.sh
+
 RUN mkdir -p /root && rm -f /root/*.sh
+
 
 
